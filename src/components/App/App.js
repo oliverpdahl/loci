@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Dashboard from '../Dashboard/Dashboard';
-import Login from '../Login/Login';
+import Login from '../Auth/Login';
 import Preferences from '../Preferences/Preferences';
 import useToken from './useToken';
 import {Navbar, Nav} from 'react-bootstrap'
