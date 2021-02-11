@@ -8,15 +8,14 @@ import Preferences from '../Preferences/Preferences';
 import useToken from './useToken';
 import {Navbar, Nav, Container} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
+import {AuthProvider} from '../../contexts/AuthContext' 
 
 function App() {
 
-  const { token, setToken } = useToken();
-
   return (
     <div className="wrapper">
-      
       <BrowserRouter>
+      <AuthProvider>
       <Navbar bg='primary' variant='dark'>
         <Navbar.Brand href="#home">The Loci Method</Navbar.Brand>
         <Navbar.Toggle />
@@ -58,8 +57,10 @@ function App() {
             </Container>
           </Route>
         </Switch>
+        </AuthProvider>
       </BrowserRouter>
     </div>
+    
   );
 }
 
