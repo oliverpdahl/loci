@@ -30,16 +30,10 @@ function App() {
           <LinkContainer to="/preferences">
             <Nav.Link>Preferences</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/login">
-            <Nav.Link>Login</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/signup">
-            <Nav.Link>Sign Up</Nav.Link>
-          </LinkContainer>
           </Nav>
-          <Navbar.Text>
+          {/* <Navbar.Text>
             Signed in as: <a href="#login">Test User</a>
-          </Navbar.Text>
+          </Navbar.Text> */}
         </Navbar.Collapse>
       </Navbar>
         <Switch>
@@ -50,6 +44,9 @@ function App() {
           </Route>
           <Route path="/forgot-password">
             <ForgotPassword />
+          </Route>
+          <Route path="/">
+            <Dashboard />
           </Route>
           <Route path="/signup">
             <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>
