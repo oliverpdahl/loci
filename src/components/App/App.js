@@ -4,12 +4,14 @@ import './App.css';
 import Dashboard from '../Dashboard/Dashboard';
 import Login from '../Auth/Login';
 import SignUp from '../Auth/SignUp'
+import ForgotPassword from '../Auth/ForgotPassword'
 import Preferences from '../Preferences/Preferences';
 import useToken from './useToken';
 import {Navbar, Nav, Container} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {AuthProvider} from '../../contexts/AuthContext' 
 import PrivateRoute from "../PrivateRoute"
+
 
 function App() {
 
@@ -47,6 +49,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/forgot-password">
+            <ForgotPassword />
           </Route>
           <Route path="/signup">
             <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>

@@ -36,7 +36,6 @@ export default function SignUp() {
             <Card>
                 <Card.Body>
                     <h2 classsName="text-center mb-4">Sign Up</h2>
-                    {currentUser.email}
                     {error && <Alert varient="danger">{error}</Alert>}
                 </Card.Body>
                 <Form onSubmit={handleSubmit}>
