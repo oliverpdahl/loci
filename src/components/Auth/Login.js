@@ -45,6 +45,9 @@ export default function SignUp() {
                     </Form.Group>
                     <Button type="submit" disabled={loading} className="w-100">Submit</Button>
                 </Form>
+                <div className="w-100 text-center mt-3">
+                <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
             </Card>
             <div className="w-100 text-center mt-2">
                 Don't have an account? <Link to="/signup">Sign Up</Link>

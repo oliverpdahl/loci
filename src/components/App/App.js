@@ -9,6 +9,7 @@ import useToken from './useToken';
 import {Navbar, Nav, Container} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {AuthProvider} from '../../contexts/AuthContext' 
+import PrivateRoute from "../PrivateRoute"
 
 function App() {
 
@@ -40,9 +41,7 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <PrivateRoute path="/dashboard" component={Dashboard}/>
           <Route path="/preferences">
             <Preferences />
           </Route>
