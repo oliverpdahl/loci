@@ -44,9 +44,7 @@ function App() {
       </Navbar>
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard}/>
-          <Route path="/preferences">
-            <Preferences />
-          </Route>
+          <PrivateRoute path="/preferences" component={Preferences}/>
           <Route path="/login">
             <Login />
           </Route>
