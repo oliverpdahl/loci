@@ -4,6 +4,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { useAuth } from "../../contexts/AuthContext"
 import {Link, useHistory} from "react-router-dom"
 import PrivateRoute from "../PrivateRoute"
+import JourneyForm from '../Journey/JourneyForm';
+import JourneyList from '../Journey/JourneyList';
 
 export default function Dashboard() {
   const [error, setError] = useState('')
@@ -29,6 +31,12 @@ export default function Dashboard() {
         <h3>Create Mind Palaces to Remember Like Never Before</h3>
         <p>asdf asdf asd fas df asd fas df asdf asd fa sdf as dfa sdf as dfas df</p>
       </Jumbotron>
+      <Card>
+        <Card.Body>
+          <JourneyForm/>
+          <JourneyList/>
+        </Card.Body>
+      </Card>
       <Card>
         <Card.Body>
         <h2 classsName="text-center mb-4">Profile</h2>
