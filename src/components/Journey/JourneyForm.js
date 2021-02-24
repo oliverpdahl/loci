@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {database} from  "../../firebase"
+import {Button, InputGroup, FormControl} from 'react-bootstrap'
 
 export default function JourneyForm() {
     const [title, setTitle] = useState('')
@@ -18,9 +19,23 @@ export default function JourneyForm() {
         journeyRef.push(journey)
     }
     return (
-        <div>
-            <input type="text" onChange={handleOnChange} value={title} />
-            <button onClick={createJourney}>Add Journey</button>
-        </div>
+        <thead>
+            <tr>
+            <th>#</th>
+            <td colSpan="2">
+                <InputGroup className="">
+                    <InputGroup.Prepend>
+                    <InputGroup.Text id="inputGroup-sizing-default">Title</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
+                    aria-label="title"
+                    aria-describedby="inputGroup-sizing-default"
+                    type="text" onChange={handleOnChange} value={title}
+                    />
+                </InputGroup>
+            </td>
+            <th><Button onClick={createJourney} block>Add Journey</Button></th>
+            </tr>
+        </thead>
     )
 }
