@@ -11,16 +11,23 @@ import {Navbar, Nav, Container} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {AuthProvider} from '../../contexts/AuthContext' 
 import PrivateRoute from "../PrivateRoute"
+import logo from "../../logo.png"
 
 
 function App() {
 
   return (
-    <div className="wrapper">
       <BrowserRouter>
       <AuthProvider>
-      <Navbar bg='primary' variant='dark'>
-        <Navbar.Brand href="#home">The Loci Method</Navbar.Brand>
+      <Navbar bg='dark' variant='dark'>
+        <Navbar.Brand href="#home">
+        <img
+          src={logo}
+          height="35"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+      </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav className="mr-auto">
@@ -36,29 +43,28 @@ function App() {
           </Navbar.Text> */}
         </Navbar.Collapse>
       </Navbar>
-        <Switch>
-          <PrivateRoute path="/dashboard" component={Dashboard}/>
-          <PrivateRoute path="/preferences" component={Preferences}/>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/">
-            <Dashboard />
-          </Route>
-          <Route path="/signup">
-            <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>
-              <div className="w-100" style={{maxWidth: "400px"}}>
-                <SignUp />
-              </div>
-            </Container>
-          </Route>
-        </Switch>
+      <Switch>
+        <PrivateRoute path="/dashboard" component={Dashboard}/>
+        <PrivateRoute path="/preferences" component={Preferences}/>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/forgot-password">
+          <ForgotPassword />
+        </Route>
+        <Route path="/">
+          <Dashboard />
+        </Route>
+        <Route path="/signup">
+          <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>
+            <div className="w-100" style={{maxWidth: "400px"}}>
+              <SignUp />
+            </div>
+          </Container>
+        </Route>
+      </Switch>
         </AuthProvider>
       </BrowserRouter>
-    </div>
     
   );
 }

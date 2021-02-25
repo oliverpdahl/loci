@@ -23,8 +23,7 @@ export default function Dashboard() {
   }
 
   return(
-    <div>
-      <h2>Dashboard</h2>
+    <div className='m-4'>
       <Jumbotron>
         <h1>The Method of Loci</h1>
         <h3>Create Mind Palaces to Remember Like Never Before</h3>
@@ -36,13 +35,13 @@ export default function Dashboard() {
         <h2 classsName="text-center mb-4">Profile</h2>
         {error && <Alert varient="danger">{error}</Alert>}
         <strong>Email: </strong> {currentUser.email}
-        <Link to="/preferences" className="btn btn-primary w-100 mt-3">
+        <Link to="/preferences" className="btn btn-primary w-100 my-3">
           Update Profile
         </Link>
+        <Button variant="warning" onClick={handleLogOut} block>Log Out</Button>
         </Card.Body>
       </Card>
       <div>
-        <Button variant="link" onClick={handleLogOut}>Log Out</Button>
       </div>
     </div>
   );
