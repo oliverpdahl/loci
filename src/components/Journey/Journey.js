@@ -15,7 +15,7 @@ export default function Journey({journey}) {
     const reviewVariant = journey.reviewed ? "success" : "light"
     return (
         <tr>
-            <td colSpan="6">{journey.reviewed ? "✓ " : " " }{journey.title}</td>
+            <td colSpan="6" className='align-middle'><h4 className="px-2 pt-2 align-middle">{journey.reviewed ? "✓ " : " " }{journey.title}</h4></td>
             <td colSpan='1'><Button onClick={deleteJourney} variant="danger" block>Delete</Button></td>
             <td colspan='1'><Button onClick={reviewJourney} variant={reviewVariant} block>Review</Button></td>
         </tr>

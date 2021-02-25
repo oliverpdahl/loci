@@ -17,12 +17,18 @@ export default function JourneyForm() {
         }
 
         journeyRef.push(journey)
+        setTitle('CatCat')
+    }
+
+    const handleOnSubmit = (e) => {
+        createJourney()
+        setTitle("")
     }
     return (
         <thead>
             <tr>
             <th colSpan="6">
-                <InputGroup className="">
+                <InputGroup size='lg'>
                     <InputGroup.Prepend>
                     <InputGroup.Text id="inputGroup-sizing-default">Title</InputGroup.Text>
                     </InputGroup.Prepend>
@@ -33,7 +39,7 @@ export default function JourneyForm() {
                     />
                 </InputGroup>
             </th>
-            <th colSpan="2"><Button onClick={createJourney} block>Add Journey</Button></th>
+            <th colSpan="2"><Button onClick={handleOnSubmit} block type='submit' size='lg'>Add Journey</Button></th>
             </tr>
         </thead>
     )
