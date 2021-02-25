@@ -55,6 +55,7 @@ function App() {
         <Route path="/signup">
               <SignUp />
         </Route>
+        <PrivateRoute path='/' component={Dashboard}/>
       </Switch>
         </AuthProvider>
       </BrowserRouter>
