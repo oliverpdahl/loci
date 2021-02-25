@@ -21,8 +21,7 @@ export default function JourneyForm() {
     return (
         <thead>
             <tr>
-            <th>#</th>
-            <td colSpan="2">
+            <th colSpan="6">
                 <InputGroup className="">
                     <InputGroup.Prepend>
                     <InputGroup.Text id="inputGroup-sizing-default">Title</InputGroup.Text>
@@ -33,8 +32,8 @@ export default function JourneyForm() {
                     type="text" onChange={handleOnChange} value={title}
                     />
                 </InputGroup>
-            </td>
-            <th><Button onClick={createJourney} block>Add Journey</Button></th>
+            </th>
+            <th colSpan="2"><Button onClick={createJourney} block>Add Journey</Button></th>
             </tr>
         </thead>
     )
