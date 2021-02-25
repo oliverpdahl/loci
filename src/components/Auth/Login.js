@@ -28,9 +28,10 @@ export default function SignUp() {
 
     }
     return (
-        <div>
-            <Card>
-                <Card.Body>
+        <div className='m-4'>
+        <Card>
+            <div className ='m-4'>
+            <Card.Body className='text-center'>
                     <h2 classsName="text-center mb-4">Log In</h2>
                     {error && <Alert varient="danger">{error}</Alert>}
                 </Card.Body>
@@ -47,6 +48,7 @@ export default function SignUp() {
                 </Form>
                 <div className="w-100 text-center mt-3">
                 <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
             </div>
             </Card>
             <div className="w-100 text-center mt-2">

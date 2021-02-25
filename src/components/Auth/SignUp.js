@@ -32,9 +32,10 @@ export default function SignUp() {
 
     }
     return (
-        <div>
-            <Card>
-                <Card.Body>
+        <div className='m-4'>
+        <Card>
+            <div className ='m-4'>
+            <Card.Body className='text-center'>
                     <h2 classsName="text-center mb-4">Sign Up</h2>
                     {error && <Alert varient="danger">{error}</Alert>}
                 </Card.Body>
@@ -53,6 +54,7 @@ export default function SignUp() {
                     </Form.Group>
                     <Button type="submit" disabled={loading} className="w-100">Submit</Button>
                 </Form>
+                </div>
             </Card>
             <div className="w-100 text-center mt-2">
                 Already have an account? <Link to="/login">Login</Link>

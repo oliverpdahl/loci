@@ -32,7 +32,7 @@ function App() {
         <Navbar.Collapse className="justify-content-end">
           <Nav className="mr-auto">
           <LinkContainer to="/dashboard">
-            <Nav.Link varaint='dark'>Dashboard</Nav.Link>
+            <Nav.Link>Dashboard</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/preferences">
             <Nav.Link>Preferences</Nav.Link>
@@ -52,15 +52,8 @@ function App() {
         <Route path="/forgot-password">
           <ForgotPassword />
         </Route>
-        <Route path="/">
-          <Dashboard />
-        </Route>
         <Route path="/signup">
-          <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>
-            <div className="w-100" style={{maxWidth: "400px"}}>
               <SignUp />
-            </div>
-          </Container>
         </Route>
       </Switch>
         </AuthProvider>

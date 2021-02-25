@@ -28,11 +28,12 @@ export default function Dashboard() {
   }
   return(
     <div className='m-4'>
+            
       <Jumbotron style={jumboStyle}>
         <h3 variant='light'>Create Mind Palaces to Remember Like Never Before</h3>
         <p>An ideal mind palace is a brightly lit deserted place with a standard route through it like a museum or school after hours and is filled with striking images of people doing an action to encode information with a key transition at every fifth image</p>
       </Jumbotron>
-          <JourneyContainer/>
+      <JourneyContainer/>
       <Card>
         <Card.Body>
         <h2 classsName="text-center mb-4">Profile</h2>

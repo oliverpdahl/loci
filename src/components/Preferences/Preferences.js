@@ -45,10 +45,11 @@ export default function Preferences() {
 
     }
     return (
-        <div>
+        <div className='m-4'>
             <Card>
-                <Card.Body>
-                    <h2 classsName="text-center mb-4">Update Profile</h2>
+                <div className='m-4'>
+                <Card.Body className='text-center'>
+                    <h2>Update Profile</h2>
                     {error && <Alert varient="danger">{error}</Alert>}
                 </Card.Body>
                 <Form onSubmit={handleSubmit}>
@@ -66,6 +67,7 @@ export default function Preferences() {
                     </Form.Group>
                     <Button type="submit" disabled={loading} className="w-100">Submit</Button>
                 </Form>
+                </div>
             </Card>
             <div className="w-100 text-center mt-2">
                 <Link to="/dashboard">Cancel</Link>
