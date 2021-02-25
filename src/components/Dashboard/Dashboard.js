@@ -21,13 +21,16 @@ export default function Dashboard() {
       setError('Failed to log out')
     }
   }
-
+  const jumboBackground = "https://images.unsplash.com/photo-1535385793343-27dff1413c5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=957&q=80"
+  const jumboStyle = {
+    backgroundImage: 'url(' + jumboBackground + ')',
+    backgroundSize: 'cover'
+  }
   return(
     <div className='m-4'>
-      <Jumbotron>
-        <h1>The Method of Loci</h1>
-        <h3>Create Mind Palaces to Remember Like Never Before</h3>
-        <p>asdf asdf asd fas df asd fas df asdf asd fa sdf as dfa sdf as dfas df</p>
+      <Jumbotron style={jumboStyle}>
+        <h3 variant='light'>Create Mind Palaces to Remember Like Never Before</h3>
+        <p>An ideal mind palace is a brightly lit deserted place with a standard route through it like a museum or school after hours and is filled with striking images of people doing an action to encode information with a key transition at every fifth image</p>
       </Jumbotron>
           <JourneyContainer/>
       <Card>

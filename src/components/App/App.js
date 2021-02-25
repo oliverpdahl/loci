@@ -19,8 +19,8 @@ function App() {
   return (
       <BrowserRouter>
       <AuthProvider>
-      <Navbar bg='dark' variant='dark'>
-        <Navbar.Brand href="#home">
+      <Navbar bg='light' variant='light'>
+        <Navbar.Brand href="/dashboard">
         <img
           src={logo}
           height="35"
@@ -32,7 +32,7 @@ function App() {
         <Navbar.Collapse className="justify-content-end">
           <Nav className="mr-auto">
           <LinkContainer to="/dashboard">
-            <Nav.Link>Dashboard</Nav.Link>
+            <Nav.Link varaint='dark'>Dashboard</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/preferences">
             <Nav.Link>Preferences</Nav.Link>
