@@ -23,12 +23,12 @@ export default function JourneyForm() {
         }
 
         journeyRef.push(journey)
-        setTitle('CatCat')
     }
 
     const handleOnSubmit = (e) => {
         createJourney()
         setTitle("")
+        setLocation("")
     }
     return (
         <thead>
