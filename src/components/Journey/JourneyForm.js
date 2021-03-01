@@ -34,7 +34,8 @@ export default function JourneyForm() {
         <thead>
             <tr>
             <th colSpan="6">
-                <InputGroup size='lg'>
+                {/* TODO Make this more elegant */}
+                <InputGroup size='lg'> 
                     <InputGroup.Prepend>
                     <InputGroup.Text>Title</InputGroup.Text>
                     </InputGroup.Prepend>
