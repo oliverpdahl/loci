@@ -4,15 +4,21 @@ import {Button, InputGroup, FormControl} from 'react-bootstrap'
 
 export default function JourneyForm() {
     const [title, setTitle] = useState('')
+    const [location, setLocation] = useState('')
 
-    const handleOnChange = (e) => {
+    const handleOnTitleChange = (e) => {
         setTitle(e.target.value)
+    };
+
+    const handleOnLocationChange = (e) => {
+        setLocation(e.target.value)
     };
 
     const createJourney = () => {
         const journeyRef = database.ref('Journey')
         const journey = {
             title,
+            location,
             reviewed: false
         }
 
@@ -30,12 +36,20 @@ export default function JourneyForm() {
             <th colSpan="6">
                 <InputGroup size='lg'>
                     <InputGroup.Prepend>
-                    <InputGroup.Text id="inputGroup-sizing-default">Title</InputGroup.Text>
+                    <InputGroup.Text>Title</InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                     aria-label="title"
-                    aria-describedby="inputGroup-sizing-default"
-                    type="text" onChange={handleOnChange} value={title}
+                    type="text" onChange={handleOnTitleChange} value={title}
+                    />
+                </InputGroup>
+                <InputGroup size='lg'>
+                    <InputGroup.Prepend>
+                    <InputGroup.Text>Location</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
+                    aria-label="location"
+                    type="text" onChange={handleOnLocationChange} value={location}
                     />
                 </InputGroup>
             </th>
