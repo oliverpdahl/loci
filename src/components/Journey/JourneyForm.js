@@ -5,6 +5,8 @@ import {Button, InputGroup, FormControl} from 'react-bootstrap'
 export default function JourneyForm() {
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
+    const [images, setImages] = useState([])
+    const [imageTitle, setImageTitle] = useState('')
 
     const handleOnTitleChange = (e) => {
         setTitle(e.target.value)
@@ -14,15 +16,27 @@ export default function JourneyForm() {
         setLocation(e.target.value)
     };
 
+    const handleOnImageTitleChange = (e) => {
+        setImageTitle(e.target.value)
+    };
+
     const createJourney = () => {
         const journeyRef = database.ref('Journey')
         const journey = {
             title,
             location,
+            images,
             reviewed: false
         }
 
         journeyRef.push(journey)
+    }
+
+    const createImage = () => {
+        const image = {
+            imageTitle
+        }
+        setImages([image, ...images])
     }
 
     const handleOnSubmit = (e) => {
@@ -30,11 +44,16 @@ export default function JourneyForm() {
         setTitle("")
         setLocation("")
     }
+
+    const handleOnImageSubmit = (e) => {
+        createImage()
+        setImageTitle("")
+    }
+    
     return (
         <thead>
             <tr>
             <th colSpan="6">
-                {/* TODO Make this more elegant */}
                 <InputGroup size='lg'> 
                     <InputGroup.Prepend>
                     <InputGroup.Text>Title</InputGroup.Text>
@@ -53,6 +72,16 @@ export default function JourneyForm() {
                     type="text" onChange={handleOnLocationChange} value={location}
                     />
                 </InputGroup>
+                <InputGroup size='lg'>
+                    <InputGroup.Prepend>
+                    <InputGroup.Text>Image Title</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
+                    aria-label="imageTitle"
+                    type="text" onChange={handleOnImageTitleChange} value={imageTitle}
+                    />
+                </InputGroup>
+                <Button onClick={handleOnImageSubmit} block type='submit' size='lg'>Add Image</Button>
             </th>
             <th colSpan="2"><Button onClick={handleOnSubmit} block type='submit' size='lg'>Add Journey</Button></th>
             </tr>
