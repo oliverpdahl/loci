@@ -11,6 +11,7 @@ export default function JourneyForm() {
     const [imageTitle, setImageTitle] = useState('')
     const [imageDescription, setImageDescription] = useState('')
     const [imagePlacement, setImagePlacement] = useState('')
+    const [imageMeaning, setImageMeaning] = useState('')
 
     const handleOnTitleChange = (e) => {
         setTitle(e.target.value)
@@ -32,6 +33,10 @@ export default function JourneyForm() {
         setImagePlacement(e.target.value)
     };
 
+    const handleOnImageMeaningChange = (e) => {
+        setImageMeaning(e.target.value)
+    };
+
     const createJourney = () => {
         const journeyRef = database.ref('Journey')
         const journey = {
@@ -48,7 +53,8 @@ export default function JourneyForm() {
         const image = {
             imageTitle,
             imageDescription,
-            imagePlacement
+            imagePlacement,
+            imageMeaning
         }
         setImages([image, ...images])
     }
@@ -119,7 +125,16 @@ export default function JourneyForm() {
                     type="text" onChange={handleOnImageDescriptionChange} value={imageDescription}
                     />
                 </InputGroup>
-                
+                <InputGroup size='lg'>
+                    <InputGroup.Prepend>
+                    <InputGroup.Text>Image Meaning</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
+                    aria-label="imageMeaning"
+                    type="text" onChange={handleOnImageMeaningChange} value={imageMeaning}
+                    />
+                </InputGroup>
+
                 <Button onClick={handleOnImageSubmit} block type='submit' size='lg'>Add Image</Button>
                 
 
