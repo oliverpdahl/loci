@@ -1,23 +1,42 @@
 import React from 'react'
-import {database} from '../../firebase'
-import {Button} from 'react-bootstrap'
+import {Button, Table} from 'react-bootstrap'
+import Image from '../Images/Image.js'
 
 export default function Journey({journey}) {
-    const deleteJourney = () => {
-        const journeyRef = database.ref('Journey').child(journey.id)
-        journeyRef.remove()
-    }
-    const reviewJourney = () => {
-        const journeyRef = database.ref('Journey').child(journey.id)
-        journeyRef.update({reviewed: !journey.reviewed})
-    }
 
-    const reviewVariant = journey.reviewed ? "success" : "light"
+    const reviewChar = journey.reviewed ? "● " : "○ " 
+
+    const location = !!journey.location ? journey.location : ""
+
+    const title = !!journey.title ? journey.title : ""
+
+    const imagesMap = journey.images ? journey.images.map((image, index)=> (
+        <tr><td><Image image={image} key={index}/></td></tr>
+    )): ''
+
     return (
-        <tr>
-            <td colSpan="6" className='align-middle'><h4 className="px-2 pt-2 align-middle">{journey.reviewed ? "✓ " : " " }{journey.title}</h4></td>
-            <td colSpan='1'><Button onClick={deleteJourney} variant="danger" block>Delete</Button></td>
-            <td colspan='1'><Button onClick={reviewJourney} variant={reviewVariant} block>Review</Button></td>
-        </tr>
+        <td colSpan='6'>
+         <h4>{reviewChar}{title}{location}</h4>
+        <Table bordered>
+            <tr>
+                <td colSpan='0.5' className='align-middle'>
+                    <h4 className="px-2 pt-2 align-middle">
+                        
+                    </h4>
+                </td>
+                <td className='align-middle'>
+                    <h4 className="px-2 pt-2 align-middle">
+                        
+                    </h4>
+                </td>
+                <td className='align-middle'>
+                    <h4 className="px-2 pt-2 align-middle">
+                        
+                    </h4>
+                </td>
+            </tr>
+            {imagesMap}
+        </Table>
+        </td>
     )
 }

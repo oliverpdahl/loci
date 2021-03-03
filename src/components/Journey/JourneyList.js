@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {database} from "../../firebase"
-import Journey from "./Journey"
+import JourneyWithButtons from "./JourneyWithButtons"
 
 export default function JourneyList() {
     const [journeyList, setJourneyList] = useState()
@@ -19,7 +19,7 @@ export default function JourneyList() {
     return (
             <tbody>
             {journeyList ? journeyList.map((journey, index)=> (
-                <Journey journey={journey} key={index}/>
+                <JourneyWithButtons journey={journey} key={index} index={index}/>
             )): ''}
             </tbody>
     )
