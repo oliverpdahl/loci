@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {database} from  "../../firebase"
-import {Button, InputGroup, FormControl} from 'react-bootstrap'
+import {Button, InputGroup, FormControl, Card} from 'react-bootstrap'
 import Journey from "./Journey"
 import Image from "../Images/Image"
 
@@ -98,46 +98,48 @@ export default function JourneyForm() {
                     type="text" onChange={handleOnLocationChange} value={location}
                     />
                 </InputGroup>
-                <InputGroup size='lg'>
-                    <InputGroup.Prepend>
-                    <InputGroup.Text>Image Title</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                    aria-label="imageTitle"
-                    type="text" onChange={handleOnImageTitleChange} value={imageTitle}
-                    />
-                </InputGroup>
-                <InputGroup size='lg'>
-                    <InputGroup.Prepend>
-                    <InputGroup.Text>Image Placement</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                    aria-label="imagePlacement"
-                    type="text" onChange={handleOnImagePlacementChange} value={imagePlacement}
-                    />
-                </InputGroup>
-                <InputGroup size='lg'>
-                    <InputGroup.Prepend>
-                    <InputGroup.Text>Image Description</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                    aria-label="imageDescription"
-                    type="text" onChange={handleOnImageDescriptionChange} value={imageDescription}
-                    />
-                </InputGroup>
-                <InputGroup size='lg'>
-                    <InputGroup.Prepend>
-                    <InputGroup.Text>Image Meaning</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                    aria-label="imageMeaning"
-                    type="text" onChange={handleOnImageMeaningChange} value={imageMeaning}
-                    />
-                </InputGroup>
-
-                <Button onClick={handleOnImageSubmit} block type='submit' size='lg'>Add Image</Button>
-                
-
+                <Card border="primary" className="mt-3">
+                    <Card.Header>Image</Card.Header>
+                    <Card.Body>
+                        <InputGroup size='lg'>
+                            <InputGroup.Prepend>
+                            <InputGroup.Text>Title</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                            aria-label="imageTitle"
+                            type="text" onChange={handleOnImageTitleChange} value={imageTitle}
+                            />
+                        </InputGroup>
+                        <InputGroup size='lg' className="mt-2">
+                            <InputGroup.Prepend>
+                            <InputGroup.Text>Placement</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                            aria-label="imagePlacement"
+                            type="text" onChange={handleOnImagePlacementChange} value={imagePlacement}
+                            />
+                        </InputGroup>
+                        <InputGroup size='lg' className="mt-2">
+                            <InputGroup.Prepend>
+                            <InputGroup.Text>Description</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                            aria-label="imageDescription"
+                            type="text" onChange={handleOnImageDescriptionChange} value={imageDescription}
+                            />
+                        </InputGroup>
+                        <InputGroup size='lg' className="mt-2">
+                            <InputGroup.Prepend>
+                            <InputGroup.Text>Meaning</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                            aria-label="imageMeaning"
+                            type="text" onChange={handleOnImageMeaningChange} value={imageMeaning}
+                            />
+                        </InputGroup>
+                        <Button onClick={handleOnImageSubmit} block type='submit' size='lg' className="mt-3" variant='outline-primary'>Add Image</Button>
+                    </Card.Body>
+                </Card>
             </th>
             <th colSpan="2"><Button onClick={handleOnSubmit} block type='submit' size='lg'>Add Journey</Button></th>
             </tr>
