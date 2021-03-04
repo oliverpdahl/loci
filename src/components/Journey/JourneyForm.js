@@ -74,8 +74,12 @@ export default function JourneyForm() {
     }
 
     const imageBelow = (!!imageTitle || !!imageDescription || !!imageMeaning) ? 
+        
         <div>
-            <div className="mt-3">
+            <div className='mt-2'>
+                Image Preview
+            </div>
+            <div className="mt-2">
                 <Images images={[{imageDescription:imageDescription, imageTitle:imageTitle, imageMeaning:imageMeaning, imagePlacement:imagePlacement}]}/>
             </div>
             <div className="mt-2">
@@ -87,9 +91,11 @@ export default function JourneyForm() {
         <div>
         <div className='mt-2'>
             <Accordion>
-                <Card>
+                <Card bg='primary' text='light'>
                     <Accordion.Toggle as={Card.Header} eventKey={0}>
-                        Journeys
+                        <h4 className="mt-1" background='primary'>
+                        Journeys (Preview)
+                        </h4>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey={0}>
                     <Card.Body>
@@ -107,7 +113,7 @@ export default function JourneyForm() {
     
     return (
         <Card border="primary" className="mt-3">
-            <Card.Header><h4 className="pt-1">Journey</h4></Card.Header>
+            <Card.Header><h4 className="pt-1">New Journey</h4></Card.Header>
             <Card.Body>
                 <InputGroup size='lg'> 
                     <InputGroup.Prepend>
@@ -128,7 +134,7 @@ export default function JourneyForm() {
                     />
                 </InputGroup>
                 <Card border="primary" className="mt-3">
-                    <Card.Header><h5 className="pt-2">Image</h5></Card.Header>
+                    <Card.Header><h5 className="pt-2">New Image</h5></Card.Header>
                     <Card.Body>
                         <InputGroup size='md'>
                             <InputGroup.Prepend>

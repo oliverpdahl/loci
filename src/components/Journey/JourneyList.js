@@ -20,9 +20,11 @@ export default function JourneyList() {
 
     return (
         <Accordion>
-            <Card>
+            <Card bg='primary' text='light'>
                 <Accordion.Toggle as={Card.Header} eventKey={0}>
+                    <h4 className="mt-1" background='primary'>
                     Journeys
+                    </h4>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={0}>
                 <Card.Body>
