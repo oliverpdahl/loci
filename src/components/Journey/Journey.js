@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Table} from 'react-bootstrap'
-import Image from '../Images/Image.js'
+import Image from '../Images/Images.js'
 
 export default function Journey({journey}) {
 

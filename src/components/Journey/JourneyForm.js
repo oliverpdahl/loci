@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {database} from  "../../firebase"
 import {Button, InputGroup, FormControl, Card, Alert} from 'react-bootstrap'
 import Journey from "./Journey"
-import Image from "../Images/Image"
+import Image from "../Images/Images"
 
 export default function JourneyForm() {
     const [title, setTitle] = useState('')
@@ -68,6 +68,9 @@ export default function JourneyForm() {
     const handleOnImageSubmit = (e) => {
         createImage()
         setImageTitle("")
+        setImagePlacement("")
+        setImageMeaning("")
+        setImageDescription("")
     }
 
     const imageBelow = (!!imageTitle || !!imageDescription || !!imageMeaning) ? 

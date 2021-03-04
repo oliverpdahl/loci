@@ -1,8 +1,9 @@
 import React from 'react'
-
-export default function Image({image}) {
+import {Tab} from 'react-bootstrap'
+export default function Images({image}) {
     return (
         <div>
+
             {image.imageTitle}
             {image.imagePlacement}
             {image.imageDescription}
