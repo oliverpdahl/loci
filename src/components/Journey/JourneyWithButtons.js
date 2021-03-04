@@ -1,6 +1,6 @@
 import React from 'react'
 import {database} from '../../firebase'
-import {Button, Table, Card, Accordion} from 'react-bootstrap'
+import {Button, Table, Card, Accordion, Badge} from 'react-bootstrap'
 import Images from '../Images/Images'
 
 export default function JourneyWithButtons({journey, index}) {
@@ -15,7 +15,7 @@ export default function JourneyWithButtons({journey, index}) {
 
     const reviewVariant = journey.reviewed ? "success" : "light"
 
-    const reviewChar = journey.reviewed ? "● " : "○ " 
+    const reviewChar = journey.reviewed ? <Badge variant='success'>●</Badge> : <Badge variant='warning'>○</Badge> 
 
     const location = !!journey.location ? journey.location : ""
 
@@ -28,7 +28,7 @@ export default function JourneyWithButtons({journey, index}) {
     return (
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey={newIndex}>
-                {reviewChar}{title}{location}
+                <h4>{reviewChar}       {title} - {location}</h4>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={newIndex}>
             <Card.Body>
