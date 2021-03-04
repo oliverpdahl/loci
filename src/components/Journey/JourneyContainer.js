@@ -4,9 +4,12 @@ import JourneyForm from './JourneyForm'
 import JourneyList from './JourneyList'
 export default function JourneyContainer() {
     return (
-        <Table bordered hover>
+        <div>
             <JourneyForm />
+            <Table bordered hover>
+            
             <JourneyList />
-        </Table>
+            </Table>
+        </div>
     )
 }
