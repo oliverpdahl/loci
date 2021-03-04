@@ -125,7 +125,7 @@ export default function JourneyForm() {
                             </InputGroup.Prepend>
                             <FormControl
                             aria-label="imageDescription"
-                            type="text" onChange={handleOnImageDescriptionChange} value={imageDescription}
+                            as="textarea" onChange={handleOnImageDescriptionChange} value={imageDescription}
                             />
                         </InputGroup>
                         <InputGroup size='lg' className="mt-2">
@@ -134,7 +134,7 @@ export default function JourneyForm() {
                             </InputGroup.Prepend>
                             <FormControl
                             aria-label="imageMeaning"
-                            type="text" onChange={handleOnImageMeaningChange} value={imageMeaning}
+                            as="textarea" onChange={handleOnImageMeaningChange} value={imageMeaning}
                             />
                         </InputGroup>
                         <Button onClick={handleOnImageSubmit} block type='submit' size='lg' className="mt-3" variant='outline-primary'>Add Image</Button>
