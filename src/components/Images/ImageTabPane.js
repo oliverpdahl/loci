@@ -1,9 +1,9 @@
 import React from 'react'
-import {Tabs} from 'react-bootstrap'
+import {Tabs, Tab} from 'react-bootstrap'
 
-export default function ImageTabPane({image}) {
+export default function ImageTabPane({image, index}) {
     return (
-        <Tab.Pane eventKey="first">
+        <Tab.Pane eventKey={index}>
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
                 <Tab eventKey="placement" title="Placement">
                     <p></p><p>{image.imagePlacement}</p>

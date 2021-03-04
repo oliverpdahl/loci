@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {database} from "../../firebase"
 import JourneyWithButtons from "./JourneyWithButtons"
+import {Accordion, Card} from 'react-bootstrap'
 
 export default function JourneyList() {
     const [journeyList, setJourneyList] = useState()
@@ -16,11 +17,22 @@ export default function JourneyList() {
             setJourneyList(journeyList)
         })
     }, [])
+
     return (
-            <tbody>
+        <Accordion>
+            <Card>
+                <Accordion.Toggle as={Card.Header} eventKey={0}>
+                    Journeys
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey={0}>
+                <Card.Body>
+                </Card.Body>
+                </Accordion.Collapse>
+            </Card>
             {journeyList ? journeyList.map((journey, index)=> (
                 <JourneyWithButtons journey={journey} key={index} index={index}/>
-            )): ''}
-            </tbody>
+            )): ""}
+        </Accordion>
+
     )
 }

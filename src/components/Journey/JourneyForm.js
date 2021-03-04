@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {database} from  "../../firebase"
-import {Button, InputGroup, FormControl, Card, Alert} from 'react-bootstrap'
-import Journey from "./Journey"
-import Image from "../Images/Images"
+import {Button, InputGroup, FormControl, Card, Alert, Accordion} from 'react-bootstrap'
+import Images from "../Images/Images"
+import JourneyWithoutButtons from './JourneyWithoutButtons'
 
 export default function JourneyForm() {
     const [title, setTitle] = useState('')
@@ -75,15 +75,35 @@ export default function JourneyForm() {
 
     const imageBelow = (!!imageTitle || !!imageDescription || !!imageMeaning) ? 
         <div>
-            <Image image={{imageDescription:imageDescription, imageTitle:imageTitle, imageMeaning:imageMeaning, imagePlacement:imagePlacement}}/>
-            <Alert variant="warning">Click Add Image to add this image below!</Alert>
+            <div className="mt-3">
+                <Images images={[{imageDescription:imageDescription, imageTitle:imageTitle, imageMeaning:imageMeaning, imagePlacement:imagePlacement}]}/>
+            </div>
+            <div className="mt-2">
+                <Alert variant="warning">Click Add Image to add this image below!</Alert>
+            </div>
         </div> : ""
 
     const journeyBelow = (images.length > 0 || !!title || !!location) ? 
         <div>
-            <Journey journey={{title: title, location:location, images:images}}/>
+        <div className='mt-2'>
+            <Accordion>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey={0}>
+                        Journeys
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey={0}>
+                    <Card.Body>
+                    </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+                <JourneyWithoutButtons journey={{title: title, location:location, images:images}} index={0}/>
+            </Accordion>
+        </div>
+        <div className='mt-2'>
             <Alert variant="warning">Click Add Journey to add this journey below! Make sure to add any images first.</Alert>
-        </div> : ""
+        </div> 
+        </div>
+        : ""
     
     return (
         <Card border="primary" className="mt-3">
