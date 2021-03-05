@@ -5,6 +5,71 @@ import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
+import AuthFormUnderLink from "./AuthForm/AuthFormUnderLink";
+
+function AuthForm({
+  emailRef,
+  passwordRef,
+  passwordConfirmRef,
+  error,
+  message,
+  loading,
+  headerTitle,
+  handleSubmit,
+  buttonName,
+  underLinkName,
+  underLinkMessage,
+  underLinkRoute,
+}) {
+  return (
+    <div className="m-4">
+      <Card>
+        <div className="m-4">
+          <AuthFormHeader
+            title={headerTitle}
+            error={error}
+            message={message}
+          ></AuthFormHeader>
+          <Form onSubmit={handleSubmit}>
+            {!!emailRef ? (
+              <AuthFormGroup
+                name="Email"
+                type="email"
+                ref={emailRef}
+              ></AuthFormGroup>
+            ) : (
+              ""
+            )}
+            {!!passwordRef ? (
+              <AuthFormGroup
+                name="Password"
+                type="password"
+                ref={passwordRef}
+              ></AuthFormGroup>
+            ) : (
+              ""
+            )}
+            {!!passwordConfirmRef ? (
+              <AuthFormGroup
+                name="Password-Confirmation"
+                type="password"
+                ref={passwordConfirmRef}
+              ></AuthFormGroup>
+            ) : (
+              ""
+            )}
+            <AuthFormButton name={buttonName} loading={loading} />
+          </Form>
+        </div>
+      </Card>
+      <AuthFormUnderLink
+        message={underLinkMessage}
+        route={underLinkRoute}
+        link={underLinkName}
+      />
+    </div>
+  );
+}
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -35,37 +100,19 @@ export default function SignUp() {
     setLoading(false);
   }
   return (
-    <div className="m-4">
-      <Card>
-        <div className="m-4">
-          <AuthFormHeader
-            title="Sign Up"
-            error={error}
-            message={message}
-          ></AuthFormHeader>
-          <Form onSubmit={handleSubmit}>
-            <AuthFormGroup
-              name="Email"
-              type="email"
-              ref={emailRef}
-            ></AuthFormGroup>
-            <AuthFormGroup
-              name="Password"
-              type="password"
-              ref={passwordRef}
-            ></AuthFormGroup>
-            <AuthFormGroup
-              name="Password-Confirmation"
-              type="password"
-              ref={passwordConfirmRef}
-            ></AuthFormGroup>
-            <AuthFormButton name="Submit" loading={loading} />
-          </Form>
-        </div>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Login</Link>
-      </div>
-    </div>
+    <AuthForm
+      emailRef={emailRef}
+      passwordRef={passwordRef}
+      passwordConfirmRef={passwordConfirmRef}
+      error={error}
+      message={message}
+      loading={loading}
+      headerTitle="Sign Up"
+      buttonName="Submit"
+      underLinkMessage="Already have an account?"
+      underLinkRoute="/login"
+      underLinkName="Login"
+      handleSubmit={handleSubmit}
+    />
   );
 }

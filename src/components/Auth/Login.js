@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
+import AuthFormUnderLink from "./AuthForm/AuthFormUnderLink";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -57,9 +58,11 @@ export default function SignUp() {
           </div>
         </div>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </div>
+      <AuthFormUnderLink
+        message="Don't have an account?"
+        route="/signup"
+        link="Sign Up"
+      />
     </div>
   );
 }
