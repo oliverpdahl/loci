@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
+import AuthFormButton from "./AuthForm/AuthFormButton";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -44,9 +45,7 @@ export default function ForgotPassword() {
               type="email"
               ref={emailRef}
             ></AuthFormGroup>
-            <Button type="submit" disabled={loading} className="w-100">
-              Reset Password
-            </Button>
+            <AuthFormButton name="Reset Password" loading={loading} />
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/login">Login?</Link>
