@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import NavBarLink from "./NavBarLink";
 import logo from "../../logo.png";
 
 export default function NavBar() {
@@ -17,13 +17,8 @@ export default function NavBar() {
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Nav className="mr-auto">
-          {/* TODO - links to component */}
-          <LinkContainer to="/dashboard">
-            <Nav.Link>Dashboard</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/preferences">
-            <Nav.Link>Preferences</Nav.Link>
-          </LinkContainer>
+          <NavBarLink route={"/dashboard"} displayName={"Dashboard"} />
+          <NavBarLink route={"/preferences"} displayName={"Preferences"} />
         </Nav>
         {/* TODO - if there is as user they are shown in the nav bar */}
       </Navbar.Collapse>

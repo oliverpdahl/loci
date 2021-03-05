@@ -18,16 +18,9 @@ export default function App() {
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/preferences" component={Preferences} />
-          {/* TODO - routes to one line */}
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
+          <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/signup" component={SignUp} />
           <PrivateRoute path="/" component={Dashboard} />
         </Switch>
       </AuthProvider>
