@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import AuthFormGroup from "./AuthForm/AuthFormGroup";
+import AuthFormHeader from "./AuthForm/AuthFormHeader";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -26,20 +28,22 @@ export default function ForgotPassword() {
 
     setLoading(false);
   }
+
   return (
     <div className="m-4">
       <Card>
         <div className="m-4">
-          <Card.Body className="text-center">
-            <h2>Forgot Password</h2>
-            {error && <Alert varient="danger">{error}</Alert>}
-            {message && <Alert varient="success">{message}</Alert>}
-          </Card.Body>
+          <AuthFormHeader
+            title="Forgot Password"
+            error={error}
+            message={message}
+          ></AuthFormHeader>
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
+            <AuthFormGroup
+              name="Email"
+              type="email"
+              ref={emailRef}
+            ></AuthFormGroup>
             <Button type="submit" disabled={loading} className="w-100">
               Reset Password
             </Button>
