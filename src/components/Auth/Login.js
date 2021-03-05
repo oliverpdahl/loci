@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
+import AuthFormHeader from "./AuthForm/AuthFormHeader";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -10,6 +11,7 @@ export default function SignUp() {
   const passwordConfirmRef = useRef();
   const { login, currentUser } = useAuth();
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -31,10 +33,11 @@ export default function SignUp() {
     <div className="m-4">
       <Card>
         <div className="m-4">
-          <Card.Body className="text-center">
-            <h2 classsName="text-center mb-4">Log In</h2>
-            {error && <Alert varient="danger">{error}</Alert>}
-          </Card.Body>
+          <AuthFormHeader
+            title="Log In"
+            error={error}
+            message={message}
+          ></AuthFormHeader>
           <Form onSubmit={handleSubmit}>
             <AuthFormGroup
               name="Email"
