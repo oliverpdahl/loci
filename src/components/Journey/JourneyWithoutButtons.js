@@ -6,7 +6,7 @@ import Images from '../Images/Images'
 export default function JourneyWithoutButtons({journey, index}) {
     const reviewVariant = journey.reviewed ? "success" : "light"
 
-    const reviewChar = journey.reviewed ? "● " : "○ " 
+    const reviewChar = journey.reviewed ? <Badge variant='success'>●</Badge> : <Badge variant='warning'>○</Badge> 
 
     const location = !!journey.location ? journey.location : ""
 
@@ -19,7 +19,7 @@ export default function JourneyWithoutButtons({journey, index}) {
     return (
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey={newIndex}>
-                {reviewChar}{title}{location}{newIndex}
+                <h4>{reviewChar}       {title} - {location}</h4>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={newIndex}>
             <Card.Body>
