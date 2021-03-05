@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
+import AuthFormButton from "./AuthForm/AuthFormButton";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -58,9 +59,7 @@ export default function SignUp() {
               type="password"
               ref={passwordConfirmRef}
             ></AuthFormGroup>
-            <Button type="submit" disabled={loading} className="w-100">
-              Submit
-            </Button>
+            <AuthFormButton name="Submit" loading={loading} />
           </Form>
         </div>
       </Card>
