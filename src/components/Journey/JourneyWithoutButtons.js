@@ -1,6 +1,6 @@
 import React from 'react'
 import {database} from '../../firebase'
-import {Button, Table, Card, Accordion} from 'react-bootstrap'
+import {Button, Table, Card, Accordion, Badge} from 'react-bootstrap'
 import Images from '../Images/Images'
 
 export default function JourneyWithoutButtons({journey, index}) {

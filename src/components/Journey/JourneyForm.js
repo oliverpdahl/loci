@@ -62,7 +62,11 @@ export default function JourneyForm() {
     const handleOnSubmit = (e) => {
         createJourney()
         setTitle("")
-        setLocation("")
+        setLocation("")        
+        setImageTitle("")
+        setImagePlacement("")
+        setImageMeaning("")
+        setImageDescription("")
     }
 
     const handleOnImageSubmit = (e) => {
@@ -177,7 +181,7 @@ export default function JourneyForm() {
                     </Card.Body>
                 </Card>
                     {journeyBelow}
-                    <Button onClick={handleOnSubmit} block type='submit' size='lg' className="mt-3">Add Journey</Button>
+                <Button onClick={handleOnSubmit} block type='submit' size='lg' className="mt-3">Add Journey</Button>
             </Card.Body>
         </Card>
     )
