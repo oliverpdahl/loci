@@ -1,75 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
-import AuthFormGroup from "./AuthForm/AuthFormGroup";
-import AuthFormHeader from "./AuthForm/AuthFormHeader";
-import AuthFormButton from "./AuthForm/AuthFormButton";
-import AuthFormUnderLink from "./AuthForm/AuthFormUnderLink";
-
-function AuthForm({
-  emailRef,
-  passwordRef,
-  passwordConfirmRef,
-  error,
-  message,
-  loading,
-  headerTitle,
-  handleSubmit,
-  buttonName,
-  underLinkName,
-  underLinkMessage,
-  underLinkRoute,
-}) {
-  return (
-    <div className="m-4">
-      <Card>
-        <div className="m-4">
-          <AuthFormHeader
-            title={headerTitle}
-            error={error}
-            message={message}
-          ></AuthFormHeader>
-          <Form onSubmit={handleSubmit}>
-            {!!emailRef ? (
-              <AuthFormGroup
-                name="Email"
-                type="email"
-                ref={emailRef}
-              ></AuthFormGroup>
-            ) : (
-              ""
-            )}
-            {!!passwordRef ? (
-              <AuthFormGroup
-                name="Password"
-                type="password"
-                ref={passwordRef}
-              ></AuthFormGroup>
-            ) : (
-              ""
-            )}
-            {!!passwordConfirmRef ? (
-              <AuthFormGroup
-                name="Password-Confirmation"
-                type="password"
-                ref={passwordConfirmRef}
-              ></AuthFormGroup>
-            ) : (
-              ""
-            )}
-            <AuthFormButton name={buttonName} loading={loading} />
-          </Form>
-        </div>
-      </Card>
-      <AuthFormUnderLink
-        message={underLinkMessage}
-        route={underLinkRoute}
-        link={underLinkName}
-      />
-    </div>
-  );
-}
+import { useHistory } from "react-router-dom";
+import AuthForm from "./AuthForm/AuthForm";
 
 export default function SignUp() {
   const emailRef = useRef();

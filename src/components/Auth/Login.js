@@ -1,16 +1,11 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import AuthFormGroup from "./AuthForm/AuthFormGroup";
-import AuthFormHeader from "./AuthForm/AuthFormHeader";
-import AuthFormButton from "./AuthForm/AuthFormButton";
-import AuthFormUnderLink from "./AuthForm/AuthFormUnderLink";
+import AuthForm from "./AuthForm/AuthForm";
 
-export default function SignUp() {
+export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const { login, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -32,37 +27,21 @@ export default function SignUp() {
     setLoading(false);
   }
   return (
-    <div className="m-4">
-      <Card>
-        <div className="m-4">
-          <AuthFormHeader
-            title="Log In"
-            error={error}
-            message={message}
-          ></AuthFormHeader>
-          <Form onSubmit={handleSubmit}>
-            <AuthFormGroup
-              name="Email"
-              type="email"
-              ref={emailRef}
-            ></AuthFormGroup>
-            <AuthFormGroup
-              name="Password"
-              type="password"
-              ref={passwordRef}
-            ></AuthFormGroup>
-            <AuthFormButton name="Submit" loading={loading} />
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </div>
-        </div>
-      </Card>
-      <AuthFormUnderLink
-        message="Don't have an account?"
-        route="/signup"
-        link="Sign Up"
-      />
-    </div>
+    <AuthForm
+      emailRef={emailRef}
+      passwordRef={passwordRef}
+      error={error}
+      message={message}
+      loading={loading}
+      headerTitle="Log In"
+      buttonName="Submit"
+      midLinkMessage="Don't have an account?"
+      midLinkRoute="/signup"
+      midLinkName="Sign Up"
+      underLinkMessage=""
+      underLinkRoute="/forgot-password"
+      underLinkName="Forgot Password?"
+      handleSubmit={handleSubmit}
+    />
   );
 }
