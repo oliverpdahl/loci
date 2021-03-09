@@ -29,7 +29,9 @@ export default function ForgotPassword() {
 
   return (
     <AuthForm
-      emailRef={emailRef}
+      ref={{
+        emailRef: emailRef,
+      }}
       error={error}
       message={message}
       loading={loading}

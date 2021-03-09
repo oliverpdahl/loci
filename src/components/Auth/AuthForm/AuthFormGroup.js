@@ -1,11 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 
-export default function AuthFormGroup({ name, type, ref }) {
+export default forwardRef((props, ref) => {
   return (
-    <Form.Group id={name.toLowerCase()}>
-      <Form.Label>{name}</Form.Label>
-      <Form.Control type={type} ref={ref} required />
+    <Form.Group id={props.name.toLowerCase()}>
+      <Form.Label>{props.name}</Form.Label>
+      <Form.Control type={props.type} ref={ref} required />
     </Form.Group>
   );
-}
+});

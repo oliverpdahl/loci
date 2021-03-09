@@ -33,9 +33,11 @@ export default function SignUp() {
   }
   return (
     <AuthForm
-      emailRef={emailRef}
-      passwordRef={passwordRef}
-      passwordConfirmRef={passwordConfirmRef}
+      ref={{
+        emailRef: emailRef,
+        passwordRef: passwordRef,
+        passwordConfirmRef: passwordConfirmRef,
+      }}
       error={error}
       message={message}
       loading={loading}

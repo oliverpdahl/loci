@@ -28,8 +28,10 @@ export default function Login() {
   }
   return (
     <AuthForm
-      emailRef={emailRef}
-      passwordRef={passwordRef}
+      ref={{
+        emailRef: emailRef,
+        passwordRef: passwordRef,
+      }}
       error={error}
       message={message}
       loading={loading}
