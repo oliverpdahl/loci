@@ -1,7 +1,14 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 import AuthForm from "./AuthForm/AuthForm";
+=======
+import { Link, useHistory } from "react-router-dom";
+import AuthFormGroup from "./AuthForm/AuthFormGroup";
+import AuthFormHeader from "./AuthForm/AuthFormHeader";
+import AuthFormButton from "./AuthForm/AuthFormButton";
+>>>>>>> parent of ffd8963 (Finish underlink)
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -32,6 +39,7 @@ export default function SignUp() {
     setLoading(false);
   }
   return (
+<<<<<<< HEAD
     <AuthForm
       ref={{
         emailRef: emailRef,
@@ -48,5 +56,39 @@ export default function SignUp() {
       underLinkName="Login"
       handleSubmit={handleSubmit}
     />
+=======
+    <div className="m-4">
+      <Card>
+        <div className="m-4">
+          <AuthFormHeader
+            title="Sign Up"
+            error={error}
+            message={message}
+          ></AuthFormHeader>
+          <Form onSubmit={handleSubmit}>
+            <AuthFormGroup
+              name="Email"
+              type="email"
+              ref={emailRef}
+            ></AuthFormGroup>
+            <AuthFormGroup
+              name="Password"
+              type="password"
+              ref={passwordRef}
+            ></AuthFormGroup>
+            <AuthFormGroup
+              name="Password-Confirmation"
+              type="password"
+              ref={passwordConfirmRef}
+            ></AuthFormGroup>
+            <AuthFormButton name="Submit" loading={loading} />
+          </Form>
+        </div>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Already have an account? <Link to="/login">Login</Link>
+      </div>
+    </div>
+>>>>>>> parent of ffd8963 (Finish underlink)
   );
 }
