@@ -8,6 +8,9 @@ import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
+<<<<<<< HEAD
+>>>>>>> parent of ffd8963 (Finish underlink)
+=======
 >>>>>>> parent of ffd8963 (Finish underlink)
 
 export default function SignUp() {
@@ -40,6 +43,7 @@ export default function SignUp() {
   }
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <AuthForm
       ref={{
         emailRef: emailRef,
@@ -57,6 +61,8 @@ export default function SignUp() {
       handleSubmit={handleSubmit}
     />
 =======
+=======
+>>>>>>> parent of ffd8963 (Finish underlink)
     <div className="m-4">
       <Card>
         <div className="m-4">
@@ -89,6 +95,9 @@ export default function SignUp() {
         Already have an account? <Link to="/login">Login</Link>
       </div>
     </div>
+<<<<<<< HEAD
+>>>>>>> parent of ffd8963 (Finish underlink)
+=======
 >>>>>>> parent of ffd8963 (Finish underlink)
   );
 }

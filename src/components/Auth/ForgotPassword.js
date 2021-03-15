@@ -8,6 +8,9 @@ import { Link, useHistory } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
+<<<<<<< HEAD
+>>>>>>> parent of ffd8963 (Finish underlink)
+=======
 >>>>>>> parent of ffd8963 (Finish underlink)
 
 export default function ForgotPassword() {
