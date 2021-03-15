@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import { Form, Card } from "react-bootstrap";
+import { Form, Card, Button } from "react-bootstrap";
 import AuthFormGroup from "./AuthFormGroup";
 import AuthFormHeader from "./AuthFormHeader";
 import AuthFormButton from "./AuthFormButton";
@@ -91,7 +91,7 @@ export default function AuthForm({ formType }) {
     underLinkMessage: "Don't have a account?",
     underLinkRoute: "/signup",
     underLinkName: "Sign Up",
-    handleSubmit: handleForgotPasswordSubmit,
+    handleFuncSubmit: handleForgotPasswordSubmit,
     email: 1,
     password: 0,
     passwordConfirm: 0,
@@ -135,33 +135,36 @@ export default function AuthForm({ formType }) {
           ></AuthFormHeader>
           <Form onSubmit={passProps.handleSubmit}>
             {passProps.email ? (
-              <AuthFormGroup
-                name="Email"
-                type="email"
-                ref={emailRef}
-              ></AuthFormGroup>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
             ) : (
               ""
             )}
             {!!passProps.password ? (
-              <AuthFormGroup
-                name="Password"
-                type="password"
-                ref={passwordRef}
-              ></AuthFormGroup>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
             ) : (
               ""
             )}
             {!!passProps.passwordConfirm ? (
-              <AuthFormGroup
-                name="Password-Confirmation"
-                type="password"
-                ref={passwordConfirmRef}
-              ></AuthFormGroup>
+              <Form.Group id="password-confirmation">
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
             ) : (
               ""
             )}
-            <AuthFormButton name={passProps.buttonName} loading={loading} />
+            <Button type="submit" disabled={loading} className="w-100">
+              {passProps.buttonName}
+            </Button>
           </Form>
           {!!passProps.midLinkMessage &&
           !!passProps.midLinkName &&
