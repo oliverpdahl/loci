@@ -1,17 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 import AuthForm from "./AuthForm/AuthForm";
-=======
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
-<<<<<<< HEAD
->>>>>>> parent of ffd8963 (Finish underlink)
-=======
->>>>>>> parent of ffd8963 (Finish underlink)
+import { Card, Form } from "react-bootstrap";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -38,25 +33,6 @@ export default function ForgotPassword() {
   }
 
   return (
-<<<<<<< HEAD
-    <AuthForm
-      ref={{
-        emailRef: emailRef,
-      }}
-      error={error}
-      message={message}
-      loading={loading}
-      headerTitle="Forgot Password"
-      buttonName="Submit"
-      midLinkMessage=" "
-      midLinkRoute="/login"
-      midLinkName="Login?"
-      underLinkMessage="Don't have a account?"
-      underLinkRoute="/signup"
-      underLinkName="Sign Up"
-      handleSubmit={handleSubmit}
-    />
-=======
     <div className="m-4">
       <Card>
         <div className="m-4">
@@ -82,6 +58,5 @@ export default function ForgotPassword() {
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
->>>>>>> parent of ffd8963 (Finish underlink)
   );
 }

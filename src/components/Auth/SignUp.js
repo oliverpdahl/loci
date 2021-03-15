@@ -1,17 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 import AuthForm from "./AuthForm/AuthForm";
-=======
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
-<<<<<<< HEAD
->>>>>>> parent of ffd8963 (Finish underlink)
-=======
->>>>>>> parent of ffd8963 (Finish underlink)
+import { Card, Form } from "react-bootstrap";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -42,27 +37,6 @@ export default function SignUp() {
     setLoading(false);
   }
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <AuthForm
-      ref={{
-        emailRef: emailRef,
-        passwordRef: passwordRef,
-        passwordConfirmRef: passwordConfirmRef,
-      }}
-      error={error}
-      message={message}
-      loading={loading}
-      headerTitle="Sign Up"
-      buttonName="Submit"
-      underLinkMessage="Already have an account?"
-      underLinkRoute="/login"
-      underLinkName="Login"
-      handleSubmit={handleSubmit}
-    />
-=======
-=======
->>>>>>> parent of ffd8963 (Finish underlink)
     <div className="m-4">
       <Card>
         <div className="m-4">
@@ -95,9 +69,5 @@ export default function SignUp() {
         Already have an account? <Link to="/login">Login</Link>
       </div>
     </div>
-<<<<<<< HEAD
->>>>>>> parent of ffd8963 (Finish underlink)
-=======
->>>>>>> parent of ffd8963 (Finish underlink)
   );
 }

@@ -1,16 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-<<<<<<< HEAD
 import AuthForm from "./AuthForm/AuthForm";
-=======
 import AuthFormGroup from "./AuthForm/AuthFormGroup";
 import AuthFormHeader from "./AuthForm/AuthFormHeader";
 import AuthFormButton from "./AuthForm/AuthFormButton";
-<<<<<<< HEAD
->>>>>>> parent of ffd8963 (Finish underlink)
-=======
->>>>>>> parent of ffd8963 (Finish underlink)
+import { Card, Form } from "react-bootstrap";
 
 export default function Login() {
   const emailRef = useRef();
@@ -36,26 +31,6 @@ export default function Login() {
     setLoading(false);
   }
   return (
-<<<<<<< HEAD
-    <AuthForm
-      ref={{
-        emailRef: emailRef,
-        passwordRef: passwordRef,
-      }}
-      error={error}
-      message={message}
-      loading={loading}
-      headerTitle="Log In"
-      buttonName="Submit"
-      midLinkMessage="Don't have an account?"
-      midLinkRoute="/signup"
-      midLinkName="Sign Up"
-      underLinkMessage=""
-      underLinkRoute="/forgot-password"
-      underLinkName="Forgot Password?"
-      handleSubmit={handleSubmit}
-    />
-=======
     <div className="m-4">
       <Card>
         <div className="m-4">
@@ -86,6 +61,5 @@ export default function Login() {
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
->>>>>>> parent of ffd8963 (Finish underlink)
   );
 }

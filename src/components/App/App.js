@@ -9,6 +9,7 @@ import { AuthProvider } from "../../contexts/AuthContext";
 import PrivateRoute from "../PrivateRoute";
 import NavBar from "../NavBar/NavBar";
 import AuthForm from "../Auth/AuthForm/AuthForm";
+import Login from "../Auth/Login";
 
 export default function App() {
   return (
@@ -19,13 +20,13 @@ export default function App() {
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/preferences" component={Preferences} />
           <Route path="/login">
-            <AuthForm formType="login" />
+            <Login />
           </Route>
           <Route path="/forgot-password">
-            <AuthForm formType="forgot-password" />
+            <ForgotPassword />
           </Route>
           <Route path="/signup">
-            <AuthForm formType="signup" />
+            <SignUp />
           </Route>
           <PrivateRoute path="/" component={Dashboard} />
         </Switch>
